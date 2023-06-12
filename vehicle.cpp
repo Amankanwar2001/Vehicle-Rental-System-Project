@@ -1,9 +1,13 @@
 #include "vehicle.h"
 #include "string_helper.h"
 
+#include<iostream>
+#include<sstream>
+
+using namespace std;
 const char DELIMITER = ';';
 
-Vehicle :: Vehicle(string registrationNumber,VehicleType type,int seats,string companyName,double pricePerKm,Date PUCExpirationDate,long recordId) : Storable(recordID){
+Vehicle :: Vehicle(string registrationNumber,VehicleType type,int seats,string companyName,double pricePerKm,Date PUCExpirationDate,long recordId) : Storable(recordId){
 
 	this->registrationNumber=registrationNumber;
 	this->type=type;
@@ -13,7 +17,7 @@ Vehicle :: Vehicle(string registrationNumber,VehicleType type,int seats,string c
 	this->PUCExpirationDate=PUCExpirationDate;
 }
 
-string vehicle :: getRegistrationNumber()const{return this -> registrationNumber;}
+string Vehicle :: getRegistrationNumber()const{return this -> registrationNumber;}
 
 VehicleType Vehicle :: getVehicleType()const{return this->type;}
 
@@ -51,7 +55,7 @@ void Vehicle :: display()const{
 
 string Vehicle :: toString()const{
 	stringstream ss;
-	ss << recordID << DELIMITER
+	ss << recordId << DELIMITER
 	<< type << DELIMITER
 	<< seats << DELIMITER
 	<< companyName << DELIMITER

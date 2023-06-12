@@ -2,7 +2,7 @@
 
 template <class T> void Database :: addNewRecord(T * record) throw(IOError,MemoryError){
 	try{
-		vehicle *v=dynamic_cast<Vehicle *>(record);
+		Vehicle * v=dynamic_cast<Vehicle *>(record);
 		if(v){
 			auto savedRecord=this->vehicleTable->addNewRecord(*v);
 			record->recordId=savedRecord->recordId;
@@ -18,7 +18,7 @@ template <class T> void Database :: addNewRecord(T * record) throw(IOError,Memor
 
 		Trip *t=dynamic_cast<Trip *>(record);
 		if(t){
-			ato savedRecord=this->tripTable->addNewRecord(*t);
+			auto savedRecord=this->tripTable->addNewRecord(*t);
 			record->recordId=savedRecord->recordId;
 			return;
 		}
@@ -41,13 +41,7 @@ template<class T> void Database :: updateRecord(T * record) throw(IOError,NoSuch
 			this->userTable->updateRecord(*u);return;
 		}
 
-		Trip * t=dynamic_cast<User *> (record);
-		if(u){
-			this->userTable->updateRecord(*u);
-			return;
-		}
-
-		Trip *t=dynamic_cast<Trip *> (record);
+		Trip * t=dynamic_cast<Trip *> (record);
 		if(t){
 			this->tripTable->updateRecord(*t);
 			return;

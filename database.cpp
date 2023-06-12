@@ -12,8 +12,8 @@ const char DELIMITER=';' ;
 
 Database :: Database() throw(IOError,MemoryError){
 	try{
-		this->vehicleTable=new Table<vehicle> ("vehicles.txt");
-		this->userTable=new Table<user> ("users.txt");
+		this->vehicleTable=new Table<Vehicle> ("vehicles.txt");
+		this->userTable=new Table<User> ("users.txt");
 		this->tripTable=new Table<Trip>("trips.txt");
 
 		this->fetchAllVehicles();
@@ -113,7 +113,7 @@ void Database :: fetchAllTrips() throw (IOError,MemoryError){
 
 const Vehicle * const Database:: getVehicle(string registrationNo) const throw (NoSuchRecordError){
 	for(auto &record : *this->vehicleTable->records){
-		vehicle * vehicle=dynamic_cast<vehicle*>(record);
+		Vehicle * vehicle=dynamic_cast<Vehicle*>(record);
 
 		if(vehicle){
 			if(vehicle->getRegistrationNumber()==registrationNo){
@@ -137,9 +137,9 @@ const User * const Database :: getUser(string contactNo) const throw(NoSuchRecor
 	throw NoSuchRecordError();
 }
 const vector<const Vehicle *>Database :: getVehicle (Date startDate,Date endDate,VehicleType type) const{
-		vector<const vehicle *> vehicles=vector<const Vechicle *>();
+		vector<const Vehicle *> vehicles=vector<const Vehicle *>();
 
-	for(auto &vrecord: *this->vhicleTable->records){
+	for(auto &vrecord: *this->vehicleTable->records){
 			Vehicle *vehicle=dynamic_cast<Vehicle*>(vrecord);
 		if(vehicle && vehicle-> getVehicleType()==type){
 				bool tripFound=false;

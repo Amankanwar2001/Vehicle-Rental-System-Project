@@ -2,8 +2,11 @@
 #include "database_templates.cpp"
 
 #include<iostream>
+#include<limits>
 #include<cstdio>
 #include<cstdlib>
+
+using namespace std;
 
 Application :: Application(){
 	try{
@@ -102,7 +105,7 @@ void Application :: renderMenu(){
 	}
 }
 
-void Application :: render renderAddNewVehicleMenu() const{
+void Application :: renderAddNewVehicleMenu() const{
 	string header = "Enter details of vehicle (All fields are required) ";
 	string registrationNoLabel = "Enter vehicle registration number : " ;
 	string vehicleTypeLabel="Enter vehicle type : ";
@@ -166,7 +169,7 @@ void Application :: render renderAddNewVehicleMenu() const{
 	gotoXY(int(pucExpirationDateLabel.length()),9);
 	getline(cin,pucExpirationDate);
 
-	vehicle *vehicle;
+	Vehicle *vehicle;
 
 	try{
 		vehicle =new Vehicle(registrationNo,VehicleType(vehicleType),seat,companyName,price,Date(pucExpirationDate));

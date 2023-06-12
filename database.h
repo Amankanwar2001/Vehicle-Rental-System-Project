@@ -13,7 +13,7 @@ class Database{
 private:
 	Table<Vehicle> * vehicleTable;
 
-	Table<user> * userTable;
+	Table<User> * userTable;
 
 	Table<Trip> * tripTable;
 
@@ -31,7 +31,7 @@ public:
 	const Table<User> *const getUserRef() const;
 	const Table<Trip> *const getTripRef() const;
 
-	const Vehicle * const getVehicle(string registrationNo) cosnt throw(NoSuchRecordError);
+	const Vehicle * const getVehicle(string registrationNo) const throw(NoSuchRecordError);
 
 	const User * const getUser(string contactNo) const throw(NoSuchRecordError);
 

@@ -5,7 +5,7 @@
 
 const char DELIMITER=';' ;
 
-Trip :: Trip(const Vehicle *vehicle,const User * user,Date startDate,Date endDate,long recordId,long startReading,long endReading,double fare,bool isCompleted) : Storable(recordID){
+Trip :: Trip(const Vehicle *vehicle,const User * user,Date startDate,Date endDate,long recordId,long startReading,long endReading,double fare,bool isCompleted) : Storable(recordId){
 
 	this->vehicle=vehicle;
 	this->user=user;
@@ -70,7 +70,7 @@ void Trip :: display() const{
 
 	cout << "Trip Details : " << endl;
 	cout << "Start date : " << this->startDate.toString() << endl;
-	cout << "End date : " << this->user->endDate.toString() << endl;
+	cout << "End date : " << this->endDate.toString() << endl;
 
 	string tripStatus="Not started";
 
