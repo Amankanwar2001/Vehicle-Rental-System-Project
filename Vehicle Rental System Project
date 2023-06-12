@@ -1,0 +1,7 @@
+Vehicle Rental System is an application built using c++.
+
+This application helps an operator to maintain records related to users vehicles and trips at the behicle rental office. The functionality provided by this application includes:
+
+Addition of new vehicles,trips and users
+Editing vehicle and trip information
+Viewing historical data of past trips or the trips scheduled in the future
